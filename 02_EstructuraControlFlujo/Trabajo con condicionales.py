@@ -1,14 +1,10 @@
-def evaluarAlumno(nota):
-    valoracion="desconocida"
-    if nota<5:
-        valoracion="suspenso"
-    
-    elif nota > 10:
-        valoracion="Nota incorrecta"
+print("Obtención carnet de conducir")
 
-    else:
-        valoracion="aprobado"
-    return valoracion
+edad=int(input("Introduce tu edad, por favor "))
 
-notaAlumno=int(input("Introduce la nota: "))
-print(evaluarAlumno(notaAlumno))
+# edad>=18 and edad<=90
+if 18<edad<90:
+    print("Puedes intentar obtener el carnet ")
+
+else:
+    print("Lo siento. No cumples con la edad necesaria")
