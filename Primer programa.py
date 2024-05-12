@@ -1,3 +1,5 @@
-mensaje = "Hola python"
+nombre = "silver"
 
-print(mensaje)
+edad = 2
+
+print("HOla mi nombre es " + str(edad))
