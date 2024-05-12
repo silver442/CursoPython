@@ -22,4 +22,3 @@ if intentos==5:
     print("Lo siento no puedo realizar el calculo")
 else:
     print(math.isqrt(numero))
-
