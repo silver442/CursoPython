@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 
 import requests
 
+from urllib.parse import urljoin
+
 class PostCrawled():
 
     def __init__(self, titulo, emoticono, contenido, imagen):
@@ -15,7 +17,9 @@ class PostExtractor():
 
     def extraeInfo(self):
 
-        miDoc=requests.get("https://python.beispiel.programmierenlernen.io/")
+        urlBase="https://python.beispiel.programmierenlernen.io/"
+
+        miDoc=requests.get(urlBase)
 
         # extraer el documento
         docFinal=BeautifulSoup(miDoc.text, "html.parser")
@@ -26,10 +30,9 @@ class PostExtractor():
             titulo=card.select(".card-title span")[1].text
             emoticono=card.select_one(".emoji").text
             contenido=card.select_one(".card-text").text
-            imagen=card.select_one("img").attrs["src"]
+            imagen=urljoin(urlBase,card.select_one("img").attrs["src"])
 
             crawled=PostCrawled(titulo,emoticono, contenido, imagen)
-
             posts.append(crawled)
 
         return posts
