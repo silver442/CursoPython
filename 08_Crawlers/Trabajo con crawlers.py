@@ -23,7 +23,7 @@ class PostExtractor():
 
         urlBase="https://python.beispiel.programmierenlernen.io/"
 
-        posts=[]
+        # posts=[]
 
         while urlBase!="":
 
@@ -40,8 +40,10 @@ class PostExtractor():
                 contenido=card.select_one(".card-text").text
                 imagen=urljoin(urlBase,card.select_one("img").attrs["src"])
 
-                crawled=PostCrawled(titulo,emoticono, contenido, imagen)
-                posts.append(crawled)
+                #crawled=PostCrawled(titulo,emoticono, contenido, imagen)
+                #posts.append(crawled)
+
+                yield PostCrawled(titulo, emoticono, contenido, imagen)
 
             boton_siguiente=docFinal.select_one(".navigation .btn")
 
@@ -52,13 +54,18 @@ class PostExtractor():
             else:
                 urlBase=""
 
-        return posts
+        # return posts
 
 unPost=PostExtractor()
 
 listaPosts=unPost.extraeInfo()
 
+contador=0
 for elPost in listaPosts:
+
+    if contador==12:
+        break
+    contador+=1
 
     print(elPost.emoticono)
     print(elPost.titulo)
@@ -68,9 +75,10 @@ for elPost in listaPosts:
 
 # print(listaPosts)
 
-with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
+"""with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
     postwriter = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
     
     for mipost in unPost.extraeInfo():
         postwriter.writerow([mipost.emoticono, mipost.titulo, mipost.contenido, mipost.imagen])
+"""
