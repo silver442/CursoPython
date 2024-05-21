@@ -1,25 +1,49 @@
 from bs4 import BeautifulSoup
 
-miDoc="""
+import requests
 
-    <html>
-        <body>
-            <p>Este es el primer párrafo</p>
-            <p>Este es el segundo párrafo</p>
+class PostCrawled():
 
-            <a>Es un vínculo<a>
+    def __init__(self, titulo, emoticono, contenido, imagen):
+        
+        self.titulo=titulo
+        self.emoticono=emoticono
+        self.contenido=contenido
+        self.imagen=imagen
 
-        </body>
-    </html>
+class PostExtractor():
 
-"""
-# extraer el documento
-docFinal=BeautifulSoup(miDoc, "html.parser")
+    def extraeInfo(self):
 
-# buscar en el documento
-for parrafo in docFinal.find_all("p"):
+        miDoc=requests.get("https://python.beispiel.programmierenlernen.io/")
 
-    # Imprimir el texto que encuentre
-    print(parrafo.text) 
+        # extraer el documento
+        docFinal=BeautifulSoup(miDoc.text, "html.parser")
 
-print(docFinal)
+        posts=[]
+
+        for card in docFinal.select(".card"):
+            titulo=card.select(".card-title span")[1].text
+            emoticono=card.select_one(".emoji").text
+            contenido=card.select_one(".card-text").text
+            imagen=card.select_one("img").attrs["src"]
+
+            crawled=PostCrawled(titulo,emoticono, contenido, imagen)
+
+            posts.append(crawled)
+
+        return posts
+
+unPost=PostExtractor()
+
+listaPosts=unPost.extraeInfo()
+
+for elPost in listaPosts:
+
+    print(elPost.emoticono)
+    print(elPost.titulo)
+    print(elPost.contenido)
+    print(elPost.imagen)
+    print()
+
+# print(listaPosts)
