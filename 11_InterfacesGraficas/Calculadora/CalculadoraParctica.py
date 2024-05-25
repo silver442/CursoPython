@@ -6,73 +6,74 @@ miFrame=Frame(raiz)
 
 miFrame.pack()
 
-display=Entry(miFrame)
+digitoDisplay=StringVar()
+
+display=Entry(miFrame, textvariable=digitoDisplay, font="Arial 15")
 
 display.grid(row=1, column=1, columnspan=4, pady=10)
-display.config(background="black", fg="green", justify="right", width=20, font=12)
+display.config(background="black", fg="#00db00", justify="right", width=18)
+
+# ------------------pulsaciones numeros---------------------
+
+def pulsacionesTeclas(numPulsado):
+
+    digitoDisplay.set(digitoDisplay.get() + numPulsado)
 
 # ------------------Primera fila----------------------------
 
-boton7=Button(miFrame, text="7", width=4)
+boton7=Button(miFrame, text="7", width=5, command=lambda:pulsacionesTeclas("7"))
 boton7.grid(row=2, column=1)
 
-boton8=Button(miFrame, text="8", width=4)
+boton8=Button(miFrame, text="8", width=5, command=lambda:pulsacionesTeclas("8"))
 boton8.grid(row=2, column=2)
 
-boton9=Button(miFrame, text="9", width=4)
+boton9=Button(miFrame, text="9", width=5, command=lambda:pulsacionesTeclas("9"))
 boton9.grid(row=2, column=3)
 
-botondiv=Button(miFrame, text="/", width=4)
+botondiv=Button(miFrame, text="/", width=5)
 botondiv.grid(row=2, column=4)
 
 # ------------------segunda fila----------------------------
 
-boton4=Button(miFrame, text="4", width=4)
+boton4=Button(miFrame, text="4", width=5, command=lambda:pulsacionesTeclas("4"))
 boton4.grid(row=3, column=1)
 
-boton5=Button(miFrame, text="5", width=4)
+boton5=Button(miFrame, text="5", width=5, command=lambda:pulsacionesTeclas("5"))
 boton5.grid(row=3, column=2)
 
-boton6=Button(miFrame, text="6", width=4)
+boton6=Button(miFrame, text="6", width=5, command=lambda:pulsacionesTeclas("6"))
 boton6.grid(row=3, column=3)
 
-botonmult=Button(miFrame, text="x", width=4)
+botonmult=Button(miFrame, text="x", width=5)
 botonmult.grid(row=3, column=4)
 
 # ------------------Tercera fila----------------------------
 
-boton1=Button(miFrame, text="1", width=4)
+boton1=Button(miFrame, text="1", width=5, command=lambda:pulsacionesTeclas("1"))
 boton1.grid(row=4, column=1)
 
-boton2=Button(miFrame, text="2", width=4)
+boton2=Button(miFrame, text="2", width=5, command=lambda:pulsacionesTeclas("2"))
 boton2.grid(row=4, column=2)
 
-boton3=Button(miFrame, text="3", width=4)
+boton3=Button(miFrame, text="3", width=5, command=lambda:pulsacionesTeclas("3"))
 boton3.grid(row=4, column=3)
 
-botonrest=Button(miFrame, text="-", width=4)
+botonrest=Button(miFrame, text="-", width=5)
 botonrest.grid(row=4, column=4)
 
 # ------------------Cuarta fila----------------------------
 
-boton0=Button(miFrame, text="0", width=4)
+boton0=Button(miFrame, text="0", width=5, command=lambda:pulsacionesTeclas("0"))
 boton0.grid(row=5, column=1)
 
-botonpunto=Button(miFrame, text=".", width=4)
+botonpunto=Button(miFrame, text=".", width=5, command=lambda:pulsacionesTeclas("."))
 botonpunto.grid(row=5, column=2)
 
-botonigual=Button(miFrame, text="=", width=4)
+botonigual=Button(miFrame, text="=", width=5)
 botonigual.grid(row=5, column=3)
 
-botonmas=Button(miFrame, text="+", width=4)
+botonmas=Button(miFrame, text="+", width=5)
 botonmas.grid(row=5, column=4)
-
-
-
-
-
-
-
 
 
 raiz.mainloop()
