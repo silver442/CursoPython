@@ -56,8 +56,11 @@ nombreLabelComentarios.grid(row=5, column=0, sticky="e")
 
 def funcionBoton():
 
-    # MessageBox.showinfo("Saludo", "Hola desde Tkinter")
-    miVariable.set("Silver")
+    # MessageBox.showinfo("Informacion rescatada", cuadroTextoNombre.get() + " " + cuadroTextoApellido.get() + " " + cuadroTextoDireccion.get())
+
+    # Escribir en cuadro de texto largo
+    cuadroTextoOpiniones.insert(INSERT, "Me llamo silver")
+
 
 # Creacion de boton
 botonEnviar=Button(raiz, text="Enviar", command=funcionBoton)
