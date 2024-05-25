@@ -17,6 +17,8 @@ display=Entry(miFrame, textvariable=digitoDisplay, font="Arial 15")
 display.grid(row=1, column=1, columnspan=4, pady=10)
 display.config(background="black", fg="#00db00", justify="right", width=18)
 
+digitoDisplay.set("0")
+
 # ------------------pulsaciones numeros---------------------
 
 def pulsacionesTeclas(numPulsado):
@@ -30,7 +32,15 @@ def pulsacionesTeclas(numPulsado):
         operacion=""
 
     else:
-        digitoDisplay.set(digitoDisplay.get() + numPulsado)
+
+        if numPulsado=="0" and digitoDisplay.get()=="0":
+            digitoDisplay.set("0")
+        elif numPulsado=="." and digitoDisplay.get()=="0":
+            digitoDisplay.set(digitoDisplay.get() + numPulsado)
+        elif numPulsado!="0" and digitoDisplay.get()=="0":
+            digitoDisplay.set(numPulsado)
+        else:
+            digitoDisplay.set(digitoDisplay.get() + numPulsado)
 
 
 # -----------------funcion suma---------------------------
