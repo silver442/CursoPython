@@ -6,6 +6,10 @@ miFrame=Frame(raiz)
 
 miFrame.pack()
 
+operacion=""
+
+resultado=0
+
 digitoDisplay=StringVar()
 
 display=Entry(miFrame, textvariable=digitoDisplay, font="Arial 15")
@@ -17,7 +21,42 @@ display.config(background="black", fg="#00db00", justify="right", width=18)
 
 def pulsacionesTeclas(numPulsado):
 
-    digitoDisplay.set(digitoDisplay.get() + numPulsado)
+    global operacion
+
+    if operacion!="":
+
+        digitoDisplay.set(numPulsado)
+        
+        operacion=""
+
+    else:
+        digitoDisplay.set(digitoDisplay.get() + numPulsado)
+
+
+# -----------------funcion suma---------------------------
+
+def suma(num):
+
+    global operacion
+
+    global resultado
+
+    resultado+=int(num)
+
+    operacion="suma"
+
+    digitoDisplay.set(resultado)
+
+# -----------------Funcion total---------------------------
+
+def total():
+
+    global resultado
+
+    digitoDisplay.set(resultado+int(digitoDisplay.get()))
+
+    resultado=0
+
 
 # ------------------Primera fila----------------------------
 
@@ -69,10 +108,10 @@ boton0.grid(row=5, column=1)
 botonpunto=Button(miFrame, text=".", width=5, command=lambda:pulsacionesTeclas("."))
 botonpunto.grid(row=5, column=2)
 
-botonigual=Button(miFrame, text="=", width=5)
+botonigual=Button(miFrame, text="=", width=5, command=lambda:total())
 botonigual.grid(row=5, column=3)
 
-botonmas=Button(miFrame, text="+", width=5)
+botonmas=Button(miFrame, text="+", width=5, command=lambda:suma(digitoDisplay.get()))
 botonmas.grid(row=5, column=4)
 
 
