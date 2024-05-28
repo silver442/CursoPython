@@ -10,6 +10,8 @@ operacion=""
 
 resultado=0
 
+coma=False
+
 digitoDisplay=StringVar()
 
 display=Entry(miFrame, textvariable=digitoDisplay, font="Arial 15")
@@ -25,6 +27,8 @@ def pulsacionesTeclas(numPulsado):
 
     global operacion
 
+    global coma
+
     if operacion!="":
 
         digitoDisplay.set(numPulsado)
@@ -37,11 +41,21 @@ def pulsacionesTeclas(numPulsado):
             digitoDisplay.set("0")
         elif numPulsado=="." and digitoDisplay.get()=="0":
             digitoDisplay.set(digitoDisplay.get() + numPulsado)
+            coma=True
+
         elif numPulsado!="0" and digitoDisplay.get()=="0":
             digitoDisplay.set(numPulsado)
-        else:
+        
+        elif numPulsado=="." and coma==False:
             digitoDisplay.set(digitoDisplay.get() + numPulsado)
-
+            coma=True
+        elif numPulsado!="." and coma==True:
+            digitoDisplay.set(digitoDisplay.get() + numPulsado)
+        
+        elif numPulsado!="." and coma==False:
+            digitoDisplay.set(digitoDisplay.get() + numPulsado)
+        
+        
 
 # -----------------funcion suma---------------------------
 
