@@ -35,7 +35,7 @@ def pulsacion_coma():
     
     if contador==0:
 
-        digitoDisplay.set(digitoDisplay() + ".")
+        digitoDisplay.set(digitoDisplay.get() + ".")
     
 # ------------------pulsaciones numeros---------------------
 
@@ -83,9 +83,13 @@ def suma(num):
 
     resultado+=float(num)
 
-    operacion="suma"
+    if resultado.is_integer():
+        digitoDisplay.set(int(resultado))
 
-    digitoDisplay.set(resultado)
+        operacion="suma"
+    else:
+        operacion="suma"
+        digitoDisplay.set(resultado)
 
 # -----------------Funcion total---------------------------
 
@@ -93,9 +97,14 @@ def total():
 
     global resultado
 
-    digitoDisplay.set(resultado+float(digitoDisplay.get()))
+    if resultado+float(digitoDisplay.get()).is_integer():
+        digitoDisplay.set(int(resultado+float(digitoDisplay.get())))
+        resultado=0
 
-    resultado=0
+    else:
+        digitoDisplay.set(resultado+float(digitoDisplay.get()))
+
+        resultado=0
 
 
 # ------------------Primera fila----------------------------
