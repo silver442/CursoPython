@@ -21,6 +21,22 @@ display.config(background="black", fg="#00db00", justify="right", width=18)
 
 digitoDisplay.set("0")
 
+# -----------función alternativa para coma---------------
+
+def pulsacion_coma():
+
+    contador=0
+
+    for i in digitoDisplay.get():
+
+        if i==".":
+
+            contador+=1
+    
+    if contador==0:
+
+        digitoDisplay.set(digitoDisplay() + ".")
+    
 # ------------------pulsaciones numeros---------------------
 
 def pulsacionesTeclas(numPulsado):
@@ -65,7 +81,7 @@ def suma(num):
 
     global resultado
 
-    resultado+=int(num)
+    resultado+=float(num)
 
     operacion="suma"
 
@@ -77,7 +93,7 @@ def total():
 
     global resultado
 
-    digitoDisplay.set(resultado+int(digitoDisplay.get()))
+    digitoDisplay.set(resultado+float(digitoDisplay.get()))
 
     resultado=0
 
@@ -129,7 +145,7 @@ botonrest.grid(row=4, column=4)
 boton0=Button(miFrame, text="0", width=5, command=lambda:pulsacionesTeclas("0"))
 boton0.grid(row=5, column=1)
 
-botonpunto=Button(miFrame, text=".", width=5, command=lambda:pulsacionesTeclas("."))
+botonpunto=Button(miFrame, text=".", width=5, command=lambda:pulsacion_coma())
 botonpunto.grid(row=5, column=2)
 
 botonigual=Button(miFrame, text="=", width=5, command=lambda:total())

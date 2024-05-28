@@ -109,3 +109,4 @@ Account{name=07_Modulos, path=D:/Cursos/PildorasInformaticas/PythonTutorizado/07
 Account{name=remotes, path=D:/Cursos/PildorasInformaticas/PythonTutorizado/.git/logs/refs/remotes, type=PREDICT}
 2024-05-27 18:15:13.788 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.account.AccountManager - [client:40010105]load account manager finish
 2024-05-27 18:15:13.789 [pool-3-thread-1] INFO  com.rs.mv.mvvs.instance.userspace.UserspaceManager - [framework:30010402]config file(C:\Users\silve/.rmv/config) watcher launch successful
+2024-05-27 18:48:24.369 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(D:/Cursos/PildorasInformaticas/PythonTutorizado/11_InterfacesGraficas/Calculadora)
