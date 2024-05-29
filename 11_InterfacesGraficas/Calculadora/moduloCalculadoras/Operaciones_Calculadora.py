@@ -2,7 +2,7 @@ import re
 
 from tkinter import *
 
-from Resultados_Pantalla import *
+from moduloCalculadoras.Resultados_Pantalla import *
 
 def pulsaciones_teclas(self, valor, mostrar):
 

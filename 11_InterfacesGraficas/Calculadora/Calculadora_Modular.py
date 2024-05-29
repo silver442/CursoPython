@@ -1,7 +1,7 @@
 import re
 from tkinter import *
 
-from Botonera_Calculadora import *
+from moduloCalculadoras.Botonera_Calculadora import *
 
 raiz=Tk()
 
