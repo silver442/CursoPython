@@ -1,5 +1,7 @@
 from tkinter import *
 
+from Operaciones_Calculadora import *
+
 # contador=0
 
 def construir_botones(self, botones, filas_botones):
@@ -11,4 +13,4 @@ def construir_botones(self, botones, filas_botones):
 
 def colocar_Boton(self, valor, mostrar=True, ancho=9, alto=1):
     return Button(self.ventana, text=valor, width=ancho, height=alto, font=("Helvetica", 9),
-    command=lambda:self.pulsaciones_teclas(valor, mostrar))
+    command=lambda:pulsaciones_teclas(self,valor, mostrar))
