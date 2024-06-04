@@ -120,3 +120,5 @@ Account{name=remotes, path=D:/Cursos/PildorasInformaticas/PythonTutorizado/.git/
 2024-06-04 09:08:12.265 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.account.AccountManager - [client:40010105]load account manager finish
 2024-06-04 09:08:12.266 [pool-3-thread-1] INFO  com.rs.mv.mvvs.instance.userspace.UserspaceManager - [framework:30010402]config file(C:\Users\silve/.rmv/config) watcher launch successful
 2024-06-04 09:35:04.977 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(D:/Cursos/PildorasInformaticas/PythonTutorizado/14_Decoradores)
+2024-06-04 11:06:25.588 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(D:/Cursos/PildorasInformaticas/PythonTutorizado/15_TabajoBBDD)
+2024-06-04 11:21:49.685 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(D:/Cursos/PildorasInformaticas/PythonTutorizado/15_TrabajoBBDD)
