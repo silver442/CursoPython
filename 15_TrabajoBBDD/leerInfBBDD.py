@@ -7,20 +7,19 @@ miCursor=miConexion.cursor()
 # Creacion de una tabla productos
 # miCursor.execute("CREATE TABLE PRODUCTOS (NARTICULO VARCHAR(50), PRECIO INTEGER, SECCION VARCHAR(20))")
 
-# miCursor.execute("INSERT INTO PRODUCTOS VALUES('Camiseta', 25, 'Moda')")
+miCursor.execute("SELECT * FROM PRODUCTOS")
 
-muchosProductos=[
-    ("Patín",100, "Deportes"),
-    ("Cenicero", 20, "Cerámica"),
-    ("Pantalón", 80, "Moda")
+# fetchall() convierte los registros de la tabla en una lista
+muchosProductos=miCursor.fetchall()
 
-]
+# print(muchosProductos)
 
-# Insertar muchos productos
-miCursor.executemany("INSERT INTO PRODUCTOS VALUES(?,?,?)", muchosProductos)
+for p in muchosProductos:
+    print("Nombre: ", p[0], " Precio:", p[1])
 
 # cada vez que se hace una modificacion hay que confirmar con commit()
-miConexion.commit()
+# Para leer no es necesario el commit
+# miConexion.commit()
 
 miCursor.close()
 
