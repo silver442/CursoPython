@@ -650,3 +650,5 @@ Account{name=packages, path=D:/Cursos/PildorasInformaticas/PythonTutorizado/.ven
 Account{name=..., path=..., type=PREDICT}
 2024-06-11 13:07:12.443 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.account.AccountManager - [client:40010105]load account manager finish
 2024-06-11 13:07:12.444 [pool-3-thread-1] INFO  com.rs.mv.mvvs.instance.userspace.UserspaceManager - [framework:30010402]config file(C:\Users\silve/.rmv/config) watcher launch successful
+2024-06-11 13:08:24.533 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(D:/Cursos/PildorasInformaticas/PythonTutorizado/15_TrabajoBBDD)
+2024-06-11 13:11:33.512 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(D:/Cursos/PildorasInformaticas/PythonTutorizado/AplicacionBBDD)
